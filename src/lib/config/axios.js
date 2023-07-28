@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { REACT_APP_API_URI } from '../../../env.config';
+import { REACT_APP_API_URI } from '../../env.config';
 
 const getAxiosInstance = (contentType) => {
   const config = {
