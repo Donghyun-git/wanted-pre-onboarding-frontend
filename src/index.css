@@ -58,7 +58,7 @@ html {
 }
 body {
   width: 100%;
-  background: #fafbfa;
+  background: #fffaf7;
   min-width: 320px;
   -webkit-text-size-adjust: none;
   word-wrap: break-word;
@@ -252,8 +252,8 @@ input[type='checkbox'] {
 }
 input[type='checkbox']:checked {
   border-color: #003c74;
-  background: #003c74 url('../img/checkbox_checked.png') no-repeat center center /
-    9px auto;
+  background: #003c74 url('./images/checkbox_checked.png') no-repeat center
+    center / 9px auto;
 }
 input[type='checkbox'] + label {
   display: inline-block;
@@ -312,8 +312,8 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url('../img/select_arrow.png') no-repeat right 10px center / 10px
-    auto;
+  background: url('./images/select_arrow.png') no-repeat right 10px center /
+    10px auto;
 }
 select:focus {
   outline: solid 2px #003c74;
