@@ -4,19 +4,18 @@ import { axiosJsonInstance } from '../config/axios';
 export const signIn = async ({ email, password }) => {
   try {
     const payload = {
-      email,
-      password,
+      email: email,
+      password: password,
     };
-    const { status, data } = await axiosJsonInstance.post(
-      '/auth/signin',
-      payload
-    );
 
-    if (status !== 200) throw new Error(data.message);
+    const { data } = await axiosJsonInstance.post('/auth/signin', payload);
 
-    return { status, data };
+    const { access_token } = data;
+
+    localStorage.setItem('access_token', access_token);
+    return { data };
   } catch (error) {
-    throw new Error(error.mewssage);
+    throw new Error(error.response.data.message);
   }
 };
 
@@ -28,15 +27,10 @@ export const signUp = async ({ email, password }) => {
       password,
     };
 
-    const { status, data } = await axiosJsonInstance.post(
-      '/auth/signup',
-      payload
-    );
+    await axiosJsonInstance.post('/auth/signup', payload);
 
-    if (status !== 201) throw new Error(data.message);
-
-    return { status, data };
+    return;
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.response.data.message);
   }
 };
