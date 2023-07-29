@@ -1,8 +1,10 @@
 export const getCurrentDate = () => {
   const date = new Date();
-  const currentYear = date.getFullYear();
-  const currentMonth = date.getMonth() + 1;
-  const currentDay = date.getDay() + 23;
+  const koreaTime = date.getTime() + 9 * 60 * 60 * 1000;
+  const koreaDate = new Date(koreaTime);
+  const currentYear = koreaDate.getFullYear();
+  const currentMonth = koreaDate.getMonth() + 1;
+  const currentDate = koreaDate.getDate();
 
-  return `${currentYear}. ${currentMonth}. ${currentDay}`;
+  return `${currentYear}. ${currentMonth}. ${currentDate}`;
 };
