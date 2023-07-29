@@ -1,11 +1,13 @@
 import React from 'react';
 import * as Styled from './Styled';
+import { getCurrentDate } from '../../../utils/date';
 
 function HeaderConatiner() {
   return (
     <Styled.HeaderContainerDiv>
       <div>
         <h1>My TodoList</h1>
+        <span>{getCurrentDate()}</span>
       </div>
       <Styled.HeaderAuthDiv>
         <div>
