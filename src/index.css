@@ -245,14 +245,17 @@ input[type='checkbox'] {
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   border: solid 1px #ddd;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 input[type='checkbox']:checked {
-  border-color: #003c74;
-  background: #003c74 url('./images/checkbox_checked.png') no-repeat center
+  border-color: #bdbdbd;
+  background: #bdbdbd url('./images/checkbox_checked.png') no-repeat center
     center / 9px auto;
 }
 input[type='checkbox'] + label {
