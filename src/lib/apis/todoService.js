@@ -4,22 +4,20 @@ import { axiosJsonInstance } from '../config/axios';
 export const createTodo = async (todo) => {
   const access_token = localStorage.getItem('access_token');
   const header = {
-    header: {
+    headers: {
       Authorization: `Bearer ${access_token}`,
     },
   };
   const payload = {
-    todo,
+    todo: todo,
   };
 
   try {
     const { status, data } = await axiosJsonInstance.post(
       '/todos',
-      header,
-      payload
+      payload,
+      header
     );
-
-    if (status !== 200) throw new Error(data.message);
 
     return { status, data };
   } catch (error) {
@@ -31,7 +29,7 @@ export const createTodo = async (todo) => {
 export const getTodo = async () => {
   const access_token = localStorage.getItem('access_token');
   const header = {
-    header: {
+    headers: {
       Authorization: `Bearer ${access_token}`,
     },
   };
@@ -39,41 +37,37 @@ export const getTodo = async () => {
   try {
     const { status, data } = await axiosJsonInstance.get('/todos', header);
 
-    if (status !== 200) throw new Error(data.message);
-
     return { status, data };
   } catch (error) {
-    throw new Error(error.message);
+    const { status, message } = error.response;
+
+    if (status === 401) throw new Error(status);
+
+    throw new Error(message);
   }
 };
 
 //[ todo 수정 ]
-export const updateTodo = async ({ id, todo, isCompleted }) => {
+export const updateTodo = async (id, todo, isCompleted) => {
+  const access_token = localStorage.getItem('access_token');
+  const header = {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  };
+  const payload = {
+    todo,
+    isCompleted,
+  };
+
   try {
-    const access_token = localStorage.getItem('access_token');
-    const header = {
-      header: {
-        Authorization: `Bearer ${access_token}`,
-      },
-    };
-    const payload = {
-      todo,
-      isCompleted,
-    };
+    const { status, data } = await axiosJsonInstance.put(
+      `/todos/${id}`,
+      payload,
+      header
+    );
 
-    try {
-      const { status, data } = await axiosJsonInstance.put(
-        `/todos/${id}`,
-        header,
-        payload
-      );
-
-      if (status !== 201) throw new Error(data.message);
-
-      return { status, data };
-    } catch (error) {
-      throw new Error(error.message);
-    }
+    return { status, data };
   } catch (error) {
     throw new Error(error.message);
   }
@@ -83,20 +77,15 @@ export const updateTodo = async ({ id, todo, isCompleted }) => {
 export const deleteTodo = async (id) => {
   const access_token = localStorage.getItem('access_token');
   const header = {
-    header: {
+    headers: {
       Authorization: `Bearer ${access_token}`,
     },
   };
 
   try {
-    const { status, data } = await axiosJsonInstance.delete(
-      `/todos/${id}`,
-      header
-    );
+    await axiosJsonInstance.delete(`/todos/${id}`, header);
 
-    if (status !== 204) throw new Error(data.message);
-
-    return { status, data };
+    return;
   } catch (error) {
     throw new Error(error.message);
   }
