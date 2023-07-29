@@ -3,6 +3,8 @@ import React from 'react';
 import Layout from '../components/Layout';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
+import Todo from '../pages/Todo';
+import NotFound from '../pages/NotFound';
 
 function Router() {
   return (
@@ -10,8 +12,8 @@ function Router() {
       <Route path="/" element={<Layout />}>
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/todo" />
-        <Route path="*" />
+        <Route path="/todo" element={<Todo />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
