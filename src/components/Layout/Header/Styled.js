@@ -23,9 +23,16 @@ export const HeaderContainerDiv = styled.div`
   align-items: center;
 
   h1 {
+    display: inline-block;
     font-size: 36px;
     color: #fff;
     text-shadow: 0 1px 3px whitesmoke;
+  }
+
+  span {
+    font-size: 24px;
+    color: #fff;
+    margin-left: 48px;
   }
 `;
 
