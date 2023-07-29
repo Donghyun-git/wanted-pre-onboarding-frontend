@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   emailValidator,
@@ -11,8 +11,25 @@ function SignupForm() {
   const navigate = useNavigate();
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
-  const [isValidEmail, setIsValidEmail] = useState(true);
-  const [isValidPassword, setIsValidPassword] = useState(true);
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [isValidPassword, setIsValidPassword] = useState(false);
+
+  const [isAccessTokenValid, setIsAccessTokenValid] = useState(false);
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('access_token');
+    if (accessToken) {
+      setIsAccessTokenValid(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isAccessTokenValid) {
+      alert('이미 로그인이 되어있습니다.');
+      navigate('/todo');
+      return;
+    }
+  }, [isAccessTokenValid, navigate]);
 
   const handleChangeEmail = useCallback((e) => {
     const { value } = e.target;
@@ -59,7 +76,9 @@ function SignupForm() {
             data-testid="email-input"
             onChange={(e) => handleChangeEmail(e)}
           />
-          {!isValidEmail && <p>이메일에 '@' 가 포함되어 있어야 합니다.</p>}
+          {emailInput !== '' && !isValidEmail && (
+            <p>이메일에 '@' 가 포함되어 있어야 합니다.</p>
+          )}
         </Styled.InputDiv>
 
         <Styled.InputDiv>
@@ -70,10 +89,16 @@ function SignupForm() {
             id="password"
             onChange={(e) => handleChangePassword(e)}
           />
-          {!isValidPassword && <p>패스워드는 8자리 이상이여야 합니다.</p>}
+          {passwordInput !== '' && !isValidPassword && (
+            <p>패스워드는 8자리 이상이여야 합니다.</p>
+          )}
         </Styled.InputDiv>
         <Styled.SignupButtonDiv>
-          <button data-testid="signup-button" onClick={(e) => handleSignup(e)}>
+          <button
+            data-testid="signup-button"
+            disabled={isValidEmail && isValidPassword ? false : true}
+            onClick={(e) => handleSignup(e)}
+          >
             회원가입
           </button>
         </Styled.SignupButtonDiv>
