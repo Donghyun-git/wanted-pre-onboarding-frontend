@@ -41,11 +41,17 @@ export const LoginButtonDiv = styled.div`
     height: 4.286rem;
     border-radius: 0.857rem;
     color: #fff;
-    transition: all 0.1 ease;
+    transition: all 0.1s ease;
 
     &:hover {
       background: #979797;
     }
+  }
+
+  button[disabled] {
+    background-color: #e0e0e0;
+    color: #aaaaaa;
+    cursor: not-allowed;
   }
 
   div {
