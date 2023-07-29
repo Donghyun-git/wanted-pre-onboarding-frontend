@@ -5,7 +5,8 @@ const getAxiosInstance = (contentType) => {
   const config = {
     baseURL: REACT_APP_API_URI,
     headers: {
-      'content-type': contentType,
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': contentType,
     },
   };
 
