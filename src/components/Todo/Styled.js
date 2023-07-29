@@ -107,6 +107,8 @@ export const TaskLi = styled.li`
       align-items: center;
     }
     span {
+      text-decoration: ${({ active }) =>
+        active === 'true' ? 'line-through' : ''};
       margin-left: 40px;
     }
   }

@@ -88,7 +88,7 @@ function TaskList({ todo }) {
 
   return (
     <Styled.TaskListUl>
-      <Styled.TaskLi>
+      <Styled.TaskLi active={isCompleted.toString()}>
         <div>
           <label>
             <input
