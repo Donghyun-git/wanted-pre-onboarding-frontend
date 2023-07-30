@@ -4,7 +4,6 @@ export const getCurrentDate = () => {
   const koreaDate = new Date(koreaTime);
   const currentYear = koreaDate.getFullYear();
   const currentMonth = koreaDate.getMonth() + 1;
-  const currentDate = koreaDate.getDate();
-
+  const currentDate = koreaDate.getDate() - 1;
   return `${currentYear}. ${currentMonth}. ${currentDate}`;
 };
