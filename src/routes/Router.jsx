@@ -9,7 +9,7 @@ import NotFound from '../pages/NotFound';
 function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route element={<Layout />}>
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/todo" element={<Todo />} />
