@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { __concept2 } from '../../../styles/color';
 
 export const NotFoundMain = styled.div`
   width: 100%;
@@ -24,7 +25,7 @@ export const NotFoundImageDiv = styled.div`
 `;
 
 export const LinkToHome = styled(Link)`
-  background-color: #bdbdbd;
+  background-color: ${__concept2};
   color: white;
   width: 240px;
   margin: 0 auto;

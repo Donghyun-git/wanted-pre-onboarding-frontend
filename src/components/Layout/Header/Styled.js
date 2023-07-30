@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import * as color from '../../../styles/color';
+import { __concept1, __concept2 } from '../../../styles/color';
 
 // [ Header Layout ]
 export const HeaderWrap = styled.header`
   width: 100%;
-  background-color: ${color.headerWrap};
+  background-color: ${__concept1};
   min-height: 10rem;
 
   display: flex;
@@ -56,12 +56,12 @@ export const HeaderAuthLink = styled(Link)`
   color: #fff;
   font-weight: 600;
 
-  border: 1px solid ${color.mainWrap};
+  border: 1px solid ${__concept2};
   border-radius: 8px;
   transition: all 0.2s ease-in-out;
 
   &:hover {
     background-color: #fff;
-    color: ${color.headerWrap};
+    color: ${__concept1};
   }
 `;

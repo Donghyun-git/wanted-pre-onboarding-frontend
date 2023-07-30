@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import * as color from '../../styles/color';
+import { __concept1 } from '../../styles/color';
 
 export const SigninForm = styled.form`
   margin-top: 5rem;
@@ -35,7 +35,7 @@ export const LoginButtonDiv = styled.div`
   margin-top: 5rem;
 
   button {
-    background: ${color.headerWrap};
+    background: ${__concept1};
     border: 0;
     width: 41.714rem;
     height: 4.286rem;

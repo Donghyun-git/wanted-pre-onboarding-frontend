@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { __concept1, __concept2 } from '../../styles/color';
 
 //[ TaskHeaderSection ]
 export const TaskHeaderSection = styled.section`
@@ -16,19 +17,19 @@ export const TaskHeaderSection = styled.section`
     height: 25px;
     padding-top: 2px;
     padding-bottom: 3px;
-    background-color: #fffaf7;
+    background-color: ${__concept2};
     border-top-left-radius: 0.286rem;
     border-top-right-radius: 0.286rem;
 
     &:focus {
       outline: none;
-      border-bottom: 3px solid #bdbdbd;
+      border-bottom: 3px solid ${__concept1};
       border-left: none;
       border-right: none;
       border-top: none;
       transition: 0.2s;
       padding-top: 35px;
-      background-color: #fffaf7;
+      background-color: ${__concept2};
 
       label > span {
         top: 0px;
@@ -54,7 +55,7 @@ export const TaskHeaderSection = styled.section`
     height: 31px;
     padding: 0 8px 0 8px;
     background: #dbdbdb;
-    color: #fffaf7;
+    color: ${__concept2};
     border-radius: 0.286rem;
   }
 
@@ -63,8 +64,8 @@ export const TaskHeaderSection = styled.section`
     position: absolute;
     width: 76.897rem;
     height: 3px;
-    border: 2px solid #bdbdbd;
-    background-color: #bdbdbd;
+    border: 2px solid ${__concept1};
+    background-color: ${__concept1};
     bottom: -16px;
     left: 4px;
     filter: drop-shadow(0 0.086rem 0.086rem rgba(0, 0, 0, 0.25));
@@ -132,7 +133,7 @@ export const TaskButtonDiv = styled.div`
 
 export const TaskModifyInput = styled.input`
   && {
-    background-color: #fffaf7;
+    background-color: ${__concept2};
     margin-left: 40px;
     border-top: 0;
     border-left: 0;

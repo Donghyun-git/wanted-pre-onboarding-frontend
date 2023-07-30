@@ -1,2 +1,2 @@
-export const headerWrap = '#bdbdbd';
-export const mainWrap = '#fffaf7';
+export const __concept1 = '#bdbdbd';
+export const __concept2 = '#fffaf7';
