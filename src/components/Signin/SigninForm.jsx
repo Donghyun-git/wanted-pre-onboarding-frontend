@@ -1,62 +1,43 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  emailValidator,
-  passwordValidator,
-} from '../../validators/authValidator';
 import { signIn } from '../../lib/apis/authService';
+import { useAuthValidation } from '../../hooks/useAuthValidation';
+import { useAccessTokenCheck } from '../../hooks/useAccessTokenCheck';
 import * as Styled from './Styled';
 
 function SigninForm() {
+  const {
+    emailInput,
+    passwordInput,
+    isValidEmail,
+    isValidPassword,
+    handleChangeEmail,
+    handleChangePassword,
+  } = useAuthValidation();
+
+  const { isAccessToken } = useAccessTokenCheck();
+
   const navigate = useNavigate();
-  const [emailInput, setEmailInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
-  const [isValidEmail, setIsValidEmail] = useState(false);
-  const [isValidPassword, setIsValidPassword] = useState(false);
-
-  const [isAccessTokenValid, setIsAccessTokenValid] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('access_token');
-    if (token) {
-      setIsAccessTokenValid(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isAccessTokenValid) {
+    if (isAccessToken) {
       alert('이미 로그인이 되어 있습니다.');
       navigate('/todo');
       return;
     }
-  }, [isAccessTokenValid, navigate]);
-
-  const handleChangeEmail = useCallback((e) => {
-    const { value } = e.target;
-    setEmailInput(value);
-    setIsValidEmail(emailValidator(value));
-  }, []);
-
-  const handleChangePassword = useCallback((e) => {
-    const { value } = e.target;
-    setPasswordInput(value);
-    setIsValidPassword(passwordValidator(value));
-  }, []);
+  }, [isAccessToken, navigate]);
 
   const handleSignin = useCallback(
     async (e) => {
       e.preventDefault();
 
       try {
-        const { data } = await signIn({
+        await signIn({
           email: emailInput,
           password: passwordInput,
         });
 
-        console.log(data);
-
         alert('로그인 성공');
-
         navigate('/todo');
       } catch (error) {
         alert('이메일과 비밀번호를 다시 한 번 확인해주세요!');
@@ -72,8 +53,9 @@ function SigninForm() {
           <label htmlFor="email">E-MAIL</label>
           <input
             type="email"
-            id="email"
             data-testid="email-input"
+            id="email"
+            placeholder="example@google.com"
             onChange={(e) => handleChangeEmail(e)}
           />
           {emailInput !== '' && !isValidEmail && (
@@ -87,6 +69,7 @@ function SigninForm() {
             type="password"
             data-testid="password-input"
             id="password"
+            placeholder="8자 이상"
             onChange={(e) => handleChangePassword(e)}
           />
           {passwordInput !== '' && !isValidPassword && (
