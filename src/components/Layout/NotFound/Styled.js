@@ -11,6 +11,12 @@ export const NotFoundContainer = styled.div`
   margin: 50px auto 0 auto;
   width: 85.714rem;
   height: fit-content;
+
+  div {
+    h1 {
+      text-align: center;
+    }
+  }
 `;
 
 export const NotFoundImageDiv = styled.div`
