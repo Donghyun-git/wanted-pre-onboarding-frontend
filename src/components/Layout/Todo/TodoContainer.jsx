@@ -21,7 +21,7 @@ function TodoContainer() {
       } catch (error) {
         if (error.message === '401') {
           localStorage.removeItem('access_token');
-          alert('세션이 만료되었습니다! 다시 로그인 해주세요!');
+          alert('로그인을 해주세요!');
           navigate('/signin');
         }
       }
