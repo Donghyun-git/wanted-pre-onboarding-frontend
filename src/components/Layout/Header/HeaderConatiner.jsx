@@ -4,7 +4,7 @@ import { getCurrentDate } from '../../../utils/date';
 import { useAccessTokenCheck } from '../../../hooks/useAccessTokenCheck';
 
 function HeaderConatiner() {
-  const { isAccessToken, handleDeleteAccessToken } = useAccessTokenCheck();
+  const { handleDeleteAccessToken } = useAccessTokenCheck();
 
   return (
     <Styled.HeaderContainerDiv>
@@ -13,7 +13,7 @@ function HeaderConatiner() {
         <span>{getCurrentDate()}</span>
       </div>
       <Styled.HeaderAuthDiv>
-        {!isAccessToken ? (
+        {!localStorage.getItem('access_token') ? (
           <Fragment>
             <div>
               <Styled.HeaderAuthLink to="/signin">
