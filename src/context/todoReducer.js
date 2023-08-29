@@ -6,6 +6,7 @@ export const todoReducer = (state, action) => {
     case 'CREATE_TODO': {
       return [...state, action.payload];
     }
+
     case 'UPDATE_TODO':
       return state.map((todo) =>
         todo.id === action.payload.id
