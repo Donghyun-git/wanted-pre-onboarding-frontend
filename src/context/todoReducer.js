@@ -25,5 +25,3 @@ export const todoReducer = (state, action) => {
       return state;
   }
 };
-
-console.log('dd');
