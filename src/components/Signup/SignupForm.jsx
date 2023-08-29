@@ -59,9 +59,7 @@ function SignupForm() {
             data-testid="email-input"
             onChange={(e) => handleChangeEmail(e)}
           />
-          {emailInput !== '' && !isValidEmail && (
-            <p>이메일에 '@' 가 포함되어 있어야 합니다.</p>
-          )}
+          {emailInput !== '' && !isValidEmail && <p>이메일에 '@' 가 포함되어 있어야 합니다.</p>}
         </Styled.InputDiv>
 
         <Styled.InputDiv>
@@ -72,9 +70,7 @@ function SignupForm() {
             id="password"
             onChange={(e) => handleChangePassword(e)}
           />
-          {passwordInput !== '' && !isValidPassword && (
-            <p>패스워드는 8자리 이상이여야 합니다.</p>
-          )}
+          {passwordInput !== '' && !isValidPassword && <p>패스워드는 8자리 이상이여야 합니다.</p>}
         </Styled.InputDiv>
         <Styled.SignupButtonDiv>
           <button

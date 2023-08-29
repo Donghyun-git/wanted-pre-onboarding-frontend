@@ -112,31 +112,19 @@ function TaskList({ todo }) {
         <Styled.TaskButtonDiv>
           {isModify ? (
             <Fragment>
-              <Styled.CancelButton
-                data-testid="cancel-button"
-                onClick={handleClickCancelModify}
-              >
+              <Styled.CancelButton data-testid="cancel-button" onClick={handleClickCancelModify}>
                 <MdOutlineCancel />
               </Styled.CancelButton>
-              <Styled.SubmitButton
-                data-testid="submit-button"
-                onClick={handleSubmitUpdateTodo}
-              >
+              <Styled.SubmitButton data-testid="submit-button" onClick={handleSubmitUpdateTodo}>
                 <AiOutlineEnter />
               </Styled.SubmitButton>
             </Fragment>
           ) : (
             <Fragment>
-              <Styled.ModifyButton
-                data-testid="modify-button"
-                onClick={handleClickModify}
-              >
+              <Styled.ModifyButton data-testid="modify-button" onClick={handleClickModify}>
                 <SlPencil />
               </Styled.ModifyButton>
-              <Styled.DeleteButton
-                data-testid="delete-button"
-                onClick={handleSubmitDeleteTodo}
-              >
+              <Styled.DeleteButton data-testid="delete-button" onClick={handleSubmitDeleteTodo}>
                 <SlTrash />
               </Styled.DeleteButton>
             </Fragment>

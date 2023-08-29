@@ -12,7 +12,9 @@ export const TaskHeaderSection = styled.section`
   margin-top: 4.286rem;
 
   input {
-    transition: padding-top 0.2s ease, margin-top 0.2s ease;
+    transition:
+      padding-top 0.2s ease,
+      margin-top 0.2s ease;
     width: 92%;
     height: 25px;
     padding-top: 2px;
@@ -46,8 +48,14 @@ export const TaskHeaderSection = styled.section`
     font-size: 14px;
     top: 6px;
     left: 10px;
-    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
-    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    -webkit-transition:
+      top 0.2s ease,
+      font-size 0.2s ease,
+      color 0.2s ease;
+    transition:
+      top 0.2s ease,
+      font-size 0.2s ease,
+      color 0.2s ease;
   }
 
   button {
@@ -108,8 +116,7 @@ export const TaskLi = styled.li`
       align-items: center;
     }
     span {
-      text-decoration: ${({ active }) =>
-        active === 'true' ? 'line-through' : ''};
+      text-decoration: ${({ active }) => (active === 'true' ? 'line-through' : '')};
       margin-left: 40px;
     }
   }

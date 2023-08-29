@@ -13,11 +13,7 @@ export const createTodo = async (todo) => {
   };
 
   try {
-    const { status, data } = await axiosJsonInstance.post(
-      '/todos',
-      payload,
-      header
-    );
+    const { status, data } = await axiosJsonInstance.post('/todos', payload, header);
 
     return { status, data };
   } catch (error) {
@@ -61,11 +57,7 @@ export const updateTodo = async (id, todo, isCompleted) => {
   };
 
   try {
-    const { status, data } = await axiosJsonInstance.put(
-      `/todos/${id}`,
-      payload,
-      header
-    );
+    const { status, data } = await axiosJsonInstance.put(`/todos/${id}`, payload, header);
 
     return { status, data };
   } catch (error) {

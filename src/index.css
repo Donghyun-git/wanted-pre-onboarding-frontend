@@ -255,8 +255,7 @@ input[type='checkbox'] {
 }
 input[type='checkbox']:checked {
   border-color: #bdbdbd;
-  background: #bdbdbd url('./images/checkbox_checked.png') no-repeat center
-    center / 9px auto;
+  background: #bdbdbd url('./images/checkbox_checked.png') no-repeat center center / 9px auto;
 }
 input[type='checkbox'] + label {
   display: inline-block;
@@ -315,8 +314,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url('./images/select_arrow.png') no-repeat right 10px center /
-    10px auto;
+  background: url('./images/select_arrow.png') no-repeat right 10px center / 10px auto;
 }
 select:focus {
   outline: solid 2px #003c74;

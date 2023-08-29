@@ -27,12 +27,7 @@ function TodoHeaderSection() {
 
   return (
     <Styled.TaskHeaderSection>
-      <input
-        type="text"
-        data-testid="new-todo-input"
-        id="text"
-        ref={todoInputRef}
-      />
+      <input type="text" data-testid="new-todo-input" id="text" ref={todoInputRef} />
       <label htmlFor="text">
         <span>오늘의 할일은?</span>
       </label>

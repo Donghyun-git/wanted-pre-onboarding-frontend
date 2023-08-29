@@ -29,7 +29,6 @@ function SigninForm() {
   const handleSignin = useCallback(
     async (e) => {
       e.preventDefault();
-
       try {
         await signIn({
           email: emailInput,
@@ -57,9 +56,7 @@ function SigninForm() {
             placeholder="example@google.com"
             onChange={(e) => handleChangeEmail(e)}
           />
-          {emailInput !== '' && !isValidEmail && (
-            <p>이메일에 '@' 가 포함되어 있어야 합니다.</p>
-          )}
+          {emailInput !== '' && !isValidEmail && <p>이메일에 '@' 가 포함되어 있어야 합니다.</p>}
         </Styled.InputDiv>
 
         <Styled.InputDiv>
@@ -71,9 +68,7 @@ function SigninForm() {
             placeholder="8자 이상"
             onChange={(e) => handleChangePassword(e)}
           />
-          {passwordInput !== '' && !isValidPassword && (
-            <p>패스워드는 8자리 이상이여야 합니다.</p>
-          )}
+          {passwordInput !== '' && !isValidPassword && <p>패스워드는 8자리 이상이여야 합니다.</p>}
         </Styled.InputDiv>
         <Styled.LoginButtonDiv>
           <button

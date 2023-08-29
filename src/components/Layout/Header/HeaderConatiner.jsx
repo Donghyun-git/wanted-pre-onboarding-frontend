@@ -16,22 +16,15 @@ function HeaderConatiner() {
         {!localStorage.getItem('access_token') ? (
           <Fragment>
             <div>
-              <Styled.HeaderAuthLink to="/signin">
-                Sign In
-              </Styled.HeaderAuthLink>
+              <Styled.HeaderAuthLink to="/signin">Sign In</Styled.HeaderAuthLink>
             </div>
             <div>
-              <Styled.HeaderAuthLink to="/signup">
-                Sign Up
-              </Styled.HeaderAuthLink>
+              <Styled.HeaderAuthLink to="/signup">Sign Up</Styled.HeaderAuthLink>
             </div>
           </Fragment>
         ) : (
           <div>
-            <Styled.HeaderAuthLink
-              to="/signin"
-              onClick={handleDeleteAccessToken}
-            >
+            <Styled.HeaderAuthLink to="/signin" onClick={handleDeleteAccessToken}>
               LogOut
             </Styled.HeaderAuthLink>
           </div>
