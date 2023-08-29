@@ -3,6 +3,7 @@ export const todoReducer = (state, action) => {
     case 'GET_TODO': {
       return action.payload;
     }
+
     case 'CREATE_TODO': {
       return [...state, action.payload];
     }
@@ -24,3 +25,5 @@ export const todoReducer = (state, action) => {
       return state;
   }
 };
+
+console.log('dd');
