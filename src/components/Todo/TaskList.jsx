@@ -41,7 +41,6 @@ function TaskList({ todo }) {
 
       return;
     } catch (error) {
-      console.log(error);
       alert(error);
 
       return;
