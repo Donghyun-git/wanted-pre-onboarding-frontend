@@ -2,7 +2,6 @@
 
 #pem, sh
 *.pem
-deploy.sh
 
 #lint
 .eslintcache
