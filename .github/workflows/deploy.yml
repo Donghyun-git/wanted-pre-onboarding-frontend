@@ -41,3 +41,13 @@ jobs:
             --deployment-config-name CodeDeployDefault.AllAtOnce \
             --deployment-group-name todolist-codeDeploy-group \
             --s3-location bucket=todolist-bucket-cd,key=build/build.zip,bundleType=zip
+      - name: SSH into EC2 and run deploy.sh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.AWS_EC2_TODOLIST_PRIVATE_KEY }}
+          script: |
+            REPOSITORY=/home/ubuntu/deploy
+            cd $REPOSITORY
+            ./deploy.sh
