@@ -1,6 +1,6 @@
-REPOSITORY=/home/ubuntu/deploy
+pwd
 
-cd $REPOSITORY
+cd deploy
 
 sudo npm install
 sudo pm2 restart all
