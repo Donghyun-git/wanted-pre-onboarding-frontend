@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <>
       <NotFoundMain />
-      <h1>배포 자동화 세번째 테스트</h1>
+      <h1>CD 구축 성공하면 바껴있을겁니다.......</h1>
     </>
   );
 }
