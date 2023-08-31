@@ -23,8 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "cd src & npx prettier --write --cache .",
-    "lint": "cd src & eslint --cache .",
-    "postinstall": "husky install"
+    "lint": "cd src & eslint --cache ."
   },
   "eslintConfig": {
     "extends": [

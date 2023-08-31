@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <>
       <NotFoundMain />
-      <h1>CD 구축 성공하면 바껴있을겁니다.......</h1>
+      <h1>aws 에러 제거 자동배포 성공하기.</h1>
     </>
   );
 }
